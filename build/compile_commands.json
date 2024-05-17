@@ -1,0 +1,8 @@
+[
+{
+  "directory": "/home/masrkai/Programs/SMS/build",
+  "command": "/run/current-system/sw/bin/g++   -g -std=gnu++11 -o CMakeFiles/SMS.dir/SMS.cpp.o -c /home/masrkai/Programs/SMS/SMS.cpp",
+  "file": "/home/masrkai/Programs/SMS/SMS.cpp",
+  "output": "CMakeFiles/SMS.dir/SMS.cpp.o"
+}
+]

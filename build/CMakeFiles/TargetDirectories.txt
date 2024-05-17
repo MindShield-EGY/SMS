@@ -1,0 +1,7 @@
+/home/masrkai/Programs/SMS/build/CMakeFiles/SMS.dir
+/home/masrkai/Programs/SMS/build/CMakeFiles/edit_cache.dir
+/home/masrkai/Programs/SMS/build/CMakeFiles/rebuild_cache.dir
+/home/masrkai/Programs/SMS/build/CMakeFiles/list_install_components.dir
+/home/masrkai/Programs/SMS/build/CMakeFiles/install.dir
+/home/masrkai/Programs/SMS/build/CMakeFiles/install/local.dir
+/home/masrkai/Programs/SMS/build/CMakeFiles/install/strip.dir

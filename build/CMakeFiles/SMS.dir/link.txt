@@ -1,0 +1,1 @@
+/run/current-system/sw/bin/g++ -g CMakeFiles/SMS.dir/SMS.cpp.o -o SMS 

@@ -12,13 +12,15 @@
 using namespace std; ///MASRKAI
 /////////////////////////////////
 
-const int MAX_COURSES = 10000; // Maximum number of courses per student
-const int MAX_STUDENTS = 100000;
+const int MAX_COURSES = 100; // Maximum number of courses per student
+const int MAX_STUDENTS = 10000;
 
 
 void ClearTerminal() {  // Ergonomics
  #ifdef _WIN32
      system("cls");
+     #else
+     system("clear");
  #endif
  }                       ///MASRKAI
 /////////////////////////////////
@@ -60,7 +62,6 @@ class LimiterBase {
             cout << " " << c3;
             this_thread::sleep_for(chrono::milliseconds(milliseconds));
             cout << "\b\b"; // Erase the character
-
             // ! Erasing animation
             this_thread::sleep_for(chrono::milliseconds(100));
             cout << "\b\b";
@@ -469,7 +470,7 @@ public:
             }
         }
         if (!found) {
-            cout << "No students enrolled in course with ID " << courseId << "." << endl;
+            printColor(RED, "No students enrolled in course with ID ", true);
         }
     }
 
@@ -606,7 +607,6 @@ int main() {
          if (cin.fail()) {
             cin.clear();
             cin.ignore(256, '\n');
-            cout << "Invalid input. Please enter a number (1-9): ";
             ClearTerminal();
             continue;}
 

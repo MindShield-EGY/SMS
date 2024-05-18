@@ -12,15 +12,13 @@
 using namespace std; ///MASRKAI
 /////////////////////////////////
 
-const int MAX_COURSES = 100; // Maximum number of courses per student
+const int MAX_COURSES = 10000; // Maximum number of courses per student
 const int MAX_STUDENTS = 100000;
 
 
 void ClearTerminal() {  // Ergonomics
  #ifdef _WIN32
      system("cls");
-  #else
-     system("clear");
  #endif
  }                       ///MASRKAI
 /////////////////////////////////

@@ -25,8 +25,6 @@ const int MAX_STUDENTS = 10000;
 void ClearTerminal() { // Ergonomics
 #ifdef _WIN32
   system("cls");
-#else
-  system("clear");
 #endif
 } /// MASRKAI
 /////////////////////////////////
@@ -78,7 +76,7 @@ protected:
       this_thread::sleep_for(chrono::milliseconds(milliseconds));
       cout << "\b\b"; // Erase the character
       // ! Erasing animation
-      this_thread::sleep_for(chrono::milliseconds(100));
+      this_thread::sleep_for(chrono::milliseconds(milliseconds));
       cout << "\b\b";
       cout.flush();
     }
@@ -87,10 +85,41 @@ protected:
 
 public:
   virtual void start() = 0;
-}; // MASRKAI
+};
+
+class LimiterS {
+
+protected:
+  virtual void drawFrame(char c1, char c2, char c3, int loops,
+                         int Secs) {
+    for (int i = 0; i <= loops; ++i) {
+
+      cout << " " << c1;
+      this_thread::sleep_for(chrono::milliseconds(Secs));
+      cout << "\b\b"; // Erase the character
+      cout.flush();
+      cout << " " << c2;
+      this_thread::sleep_for(chrono::milliseconds(Secs));
+      cout << "\b\b"; // Erase the character
+      cout.flush();
+      cout << " " << c3;
+      this_thread::sleep_for(chrono::milliseconds(Secs));
+      cout << "\b\b"; // Erase the character
+      // ! Erasing animation
+      this_thread::sleep_for(chrono::milliseconds(Secs));
+      cout << "\b\b";
+      cout.flush(); }
+    this_thread::sleep_for(chrono::milliseconds(Secs)); }
+
+public:
+  virtual void start() = 0;
+};
+
+
+// MASRKAI
 ///////////////////////////////////////////////////////////////////////////////////////////
 
-class Limiter : public LimiterBase {
+class Limiter : public LimiterBase  {
 public:
   void start() override {
     printColor(RED, "Limiter is Active", true);
@@ -99,10 +128,10 @@ public:
   }
 };
 
-class Contributers : public LimiterBase {
+class Contributors : public LimiterS {
 public:
   void start() override {
-    printColor(GREEN, " Contributers", true);
+    printColor(GREEN, " Contributors", true);
     drawFrame('-', '/', '|', 6, 200);
     ClearTerminal();
   }
@@ -637,17 +666,18 @@ void menu_of_options() {
   printColor(RED, "13. Remove Student from Course\n", false);
   printColor(RED, "14. Remove All Students\n", false);
   printColor(RED, "15. Remove All Courses\n", false);
-  printColor(RED, "16. Exit\n", true);
+  printColor(RED, "16. Clear Terminal\n", true);
+  printColor(RED, "17. Exit\n", true);
   cout << "\n";
 }
 
 int main() {
-  class Contributers CCCC;
+  class Contributors CC;
   Administrator admin1(1, "Program Director");
 
   admin1.readDataFromFile(
       "C:\\Users\\awaad\\OneDrive\\Documents\\PROJECT\\project.txt");
-  CCCC.start();
+  CC.start();
 
   int choice, studentId;
   double grade;
@@ -655,14 +685,13 @@ int main() {
   double newCreditHours;
 
   do {
-    ClearTerminal();
+
     menu_of_options();
     cout << "Enter your choice: ";
     cin >> choice;
     if (cin.fail()) {
       cin.clear();
       cin.ignore(256, '\n');
-      ClearTerminal();
       continue;
     }
 
@@ -804,6 +833,10 @@ int main() {
       break;
 
     case 16:
+      ClearTerminal();
+      break;
+
+    case 17:
       cout << "Exiting..." << endl;
       break;
 
@@ -812,7 +845,7 @@ int main() {
       break;
     }
 
-  } while (choice != 16);
+  } while (choice != 17);
 
   admin1.writeDataToFile(
       "C:\\Users\\awaad\\OneDrive\\Documents\\PROJECT\\project.txt", admin1);

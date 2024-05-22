@@ -1,14 +1,22 @@
+// #charecters
 #include <array>
-#include <chrono> // For delay
-#include <cmath>
-#include <cstdlib> // For system function
-#include <fstream>
-#include <iostream>
-#include <sstream>
-#include <stdlib.h>
 #include <string>
-#include <thread> // For delay
 #include <vector>
+#include <iostream>
+
+// #Maths ~ Fn
+#include <cmath>
+#include <chrono>
+#include <thread>
+
+//System Functions
+#include <cstdlib>
+#include <stdlib.h>
+
+// #File System
+#include <fstream>
+#include <sstream>
+#include <filesystem> //TODO: USE FILESYSTEM
 
 #ifdef _WIN32
 #include <windows.h>
@@ -25,6 +33,8 @@ const int MAX_STUDENTS = 10000;
 void ClearTerminal() { // Ergonomics
 #ifdef _WIN32
   system("cls");
+  #else
+  system("clear");
 #endif
 } /// MASRKAI
 /////////////////////////////////
@@ -35,6 +45,7 @@ void ClearTerminal() { // Ergonomics
   SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),                     \
                           FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE)
 #else
+
 
 // ANSI code
 #define RESET_COLOR "\033[0m"
@@ -386,22 +397,18 @@ public:
   }
 
   void addStudent(int id, const string &name) {
-    int x = 0;
     for (int i = 0; i < studentCount; ++i) {
       if (students[i]->getId() == id) {
         printColor(RED, "Duplicated id (This data won't be saved) \n", true);
-        x = 1;
       }
     }
-    if (studentCount < MAX_STUDENTS && x == 0) {
+    if (studentCount < MAX_STUDENTS) {
       students[studentCount++] = new Student(id, name);
 
       printColor(GREEN, "Student added with ID ", true);
       cout << id;
       printColor(BLUE, ".\nStudent name is ", true);
       cout << name << "." << endl;
-
-      x = 1;
     }
   }
 

@@ -71,40 +71,37 @@ void printColor(const string &color, const string &text, bool bold = false) {
 
 class LimiterBase {
 
-protected:
-  virtual void drawFrame(char c1, char c2, char c3, int loops,
-                         int milliseconds) {
-    for (int i = 0; i <= loops; ++i) {
-      cout << " " << c1;
-      this_thread::sleep_for(chrono::milliseconds(milliseconds));
-      cout << "\b\b"; // Erase the character
-      cout.flush();
-      cout << " " << c2;
-      this_thread::sleep_for(chrono::milliseconds(milliseconds));
-      cout << "\b\b"; // Erase the character
-      cout.flush();
-      cout << " " << c3;
-      this_thread::sleep_for(chrono::milliseconds(milliseconds));
-      cout << "\b\b"; // Erase the character
-      // ! Erasing animation
-      this_thread::sleep_for(chrono::milliseconds(milliseconds));
-      cout << "\b\b";
-      cout.flush();
-    }
-    this_thread::sleep_for(chrono::milliseconds(milliseconds));
-  }
+   protected:
+    virtual void drawFrame(char c1, char c2, char c3, int loops,int milliseconds) {
 
-public:
-  virtual void start() = 0;
+      for (int i = 0; i <= loops; ++i) {
+        cout << " " << c1;
+        this_thread::sleep_for(chrono::milliseconds(milliseconds));
+        cout << "\b\b"; // Erase the character
+        cout.flush();
+        cout << " " << c2;
+        this_thread::sleep_for(chrono::milliseconds(milliseconds));
+        cout << "\b\b"; // Erase the character
+        cout.flush();
+        cout << " " << c3;
+        this_thread::sleep_for(chrono::milliseconds(milliseconds));
+        cout << "\b\b"; // Erase the character
+        // ! Erasing animation
+        this_thread::sleep_for(chrono::milliseconds(milliseconds));
+        cout << "\b\b";
+        cout.flush();}
+        }
+
+   public:
+    virtual void start() = 0;
 };
 
 class LimiterS {
 
 protected:
-  virtual void drawFrame(char c1, char c2, char c3, int loops,
-                         int Secs) {
-    for (int i = 0; i <= loops; ++i) {
+  virtual void drawFrame(char c1, char c2, char c3, int loops, int Secs) {
 
+    for (int i = 0; i <= loops; ++i) {
       cout << " " << c1;
       this_thread::sleep_for(chrono::milliseconds(Secs));
       cout << "\b\b"; // Erase the character

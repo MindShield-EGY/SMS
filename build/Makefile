@@ -48,10 +48,10 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /nix/store/g84xzgbaf74alskp78qcf7ia32yvxhi8-cmake-3.27.7/bin/cmake
+CMAKE_COMMAND = /nix/store/1nkxfwkzidq98p4pkly3a15iqz45yk28-cmake-3.27.7/bin/cmake
 
 # The command to remove a file.
-RM = /nix/store/g84xzgbaf74alskp78qcf7ia32yvxhi8-cmake-3.27.7/bin/cmake -E rm -f
+RM = /nix/store/1nkxfwkzidq98p4pkly3a15iqz45yk28-cmake-3.27.7/bin/cmake -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
@@ -68,7 +68,7 @@ CMAKE_BINARY_DIR = /home/masrkai/Programs/SMS/build
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "No interactive CMake dialog available..."
-	/nix/store/g84xzgbaf74alskp78qcf7ia32yvxhi8-cmake-3.27.7/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+	/nix/store/1nkxfwkzidq98p4pkly3a15iqz45yk28-cmake-3.27.7/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -78,7 +78,7 @@ edit_cache/fast: edit_cache
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Running CMake to regenerate build system..."
-	/nix/store/g84xzgbaf74alskp78qcf7ia32yvxhi8-cmake-3.27.7/bin/cmake --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	/nix/store/1nkxfwkzidq98p4pkly3a15iqz45yk28-cmake-3.27.7/bin/cmake --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : rebuild_cache
 
 # Special rule for the target rebuild_cache
@@ -97,37 +97,37 @@ list_install_components/fast: list_install_components
 # Special rule for the target install
 install: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Install the project..."
-	/nix/store/g84xzgbaf74alskp78qcf7ia32yvxhi8-cmake-3.27.7/bin/cmake -P cmake_install.cmake
+	/nix/store/1nkxfwkzidq98p4pkly3a15iqz45yk28-cmake-3.27.7/bin/cmake -P cmake_install.cmake
 .PHONY : install
 
 # Special rule for the target install
 install/fast: preinstall/fast
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Install the project..."
-	/nix/store/g84xzgbaf74alskp78qcf7ia32yvxhi8-cmake-3.27.7/bin/cmake -P cmake_install.cmake
+	/nix/store/1nkxfwkzidq98p4pkly3a15iqz45yk28-cmake-3.27.7/bin/cmake -P cmake_install.cmake
 .PHONY : install/fast
 
 # Special rule for the target install/local
 install/local: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Installing only the local directory..."
-	/nix/store/g84xzgbaf74alskp78qcf7ia32yvxhi8-cmake-3.27.7/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+	/nix/store/1nkxfwkzidq98p4pkly3a15iqz45yk28-cmake-3.27.7/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
 .PHONY : install/local
 
 # Special rule for the target install/local
 install/local/fast: preinstall/fast
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Installing only the local directory..."
-	/nix/store/g84xzgbaf74alskp78qcf7ia32yvxhi8-cmake-3.27.7/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+	/nix/store/1nkxfwkzidq98p4pkly3a15iqz45yk28-cmake-3.27.7/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
 .PHONY : install/local/fast
 
 # Special rule for the target install/strip
 install/strip: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Installing the project stripped..."
-	/nix/store/g84xzgbaf74alskp78qcf7ia32yvxhi8-cmake-3.27.7/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+	/nix/store/1nkxfwkzidq98p4pkly3a15iqz45yk28-cmake-3.27.7/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
 .PHONY : install/strip
 
 # Special rule for the target install/strip
 install/strip/fast: preinstall/fast
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Installing the project stripped..."
-	/nix/store/g84xzgbaf74alskp78qcf7ia32yvxhi8-cmake-3.27.7/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+	/nix/store/1nkxfwkzidq98p4pkly3a15iqz45yk28-cmake-3.27.7/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
 .PHONY : install/strip/fast
 
 # The main all target
@@ -162,24 +162,24 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named SMS
+# Target rules for targets named main
 
 # Build rule for target.
-SMS: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 SMS
-.PHONY : SMS
+main: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 main
+.PHONY : main
 
 # fast build rule for target.
-SMS/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SMS.dir/build.make CMakeFiles/SMS.dir/build
-.PHONY : SMS/fast
+main/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/build
+.PHONY : main/fast
 
 SMS.o: SMS.cpp.o
 .PHONY : SMS.o
 
 # target to build an object file
 SMS.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SMS.dir/build.make CMakeFiles/SMS.dir/SMS.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/SMS.cpp.o
 .PHONY : SMS.cpp.o
 
 SMS.i: SMS.cpp.i
@@ -187,7 +187,7 @@ SMS.i: SMS.cpp.i
 
 # target to preprocess a source file
 SMS.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SMS.dir/build.make CMakeFiles/SMS.dir/SMS.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/SMS.cpp.i
 .PHONY : SMS.cpp.i
 
 SMS.s: SMS.cpp.s
@@ -195,7 +195,7 @@ SMS.s: SMS.cpp.s
 
 # target to generate assembly for a file
 SMS.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SMS.dir/build.make CMakeFiles/SMS.dir/SMS.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/SMS.cpp.s
 .PHONY : SMS.cpp.s
 
 # Help Target
@@ -210,7 +210,7 @@ help:
 	@echo "... install/strip"
 	@echo "... list_install_components"
 	@echo "... rebuild_cache"
-	@echo "... SMS"
+	@echo "... main"
 	@echo "... SMS.o"
 	@echo "... SMS.i"
 	@echo "... SMS.s"

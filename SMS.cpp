@@ -1,4 +1,4 @@
-// #charecters
+// #characters
 #include <array>
 #include <string>
 #include <vector>

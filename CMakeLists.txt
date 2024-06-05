@@ -1,5 +1,9 @@
 cmake_minimum_required(VERSION 3.5)
-set(CMAKE_CXX_STANDARD 11)
-project(CMS)
-add_executable(SMS SMS.cpp )
-install(TARGETS SMS RUNTIME DESTINATION bin)
+set(CMAKE_CXX_STANDARD 17)
+
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_COLOR_MAKEFILE ON)
+
+project(Main)
+add_executable(main SMS.cpp )
+install(TARGETS main RUNTIME DESTINATION bin)
